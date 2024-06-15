@@ -69,7 +69,19 @@ export const GlobalStyle = createGlobalStyle`
   --radius-full: 99999px;
   }
 
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
   body, html, :root {
     height: 100%;
+  }
+
+  body {
+    background-color: var(--color-gray-800);
+    color: var(--color-gray-200);
+    padding: 20px;
   }
 `;
