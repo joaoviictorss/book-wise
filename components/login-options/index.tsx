@@ -8,10 +8,13 @@ import LoginButton from "../login-button";
 import googleImg from "../../assets/logos_google-icon.svg";
 import githubImg from "../../assets/github-logo.svg";
 import rocketImg from "../../assets/rocket-logo.svg";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
 const LoginOptions = () => {
   const onClick = (provider: "google" | "github") => {
-    signIn(provider);
+    signIn(provider, {
+      callbackUrl: DEFAULT_LOGIN_REDIRECT,
+    });
   };
 
   return (
