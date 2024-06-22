@@ -9,6 +9,7 @@ import googleImg from "../../assets/logos_google-icon.svg";
 import githubImg from "../../assets/github-logo.svg";
 import rocketImg from "../../assets/rocket-logo.svg";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import { useRouter } from "next/navigation";
 
 const LoginOptions = () => {
   const onClick = (provider: "google" | "github") => {
@@ -16,6 +17,8 @@ const LoginOptions = () => {
       callbackUrl: DEFAULT_LOGIN_REDIRECT,
     });
   };
+
+  const router = useRouter();
 
   return (
     <LoginOptionsContainer>
@@ -35,7 +38,7 @@ const LoginOptions = () => {
             iconSrc={githubImg}
           />
           <LoginButton
-            onClick={() => onClick("google")}
+            onClick={() => router.push("/home")}
             text="Acessar como visitante"
             iconSrc={rocketImg}
           />

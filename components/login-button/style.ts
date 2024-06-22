@@ -18,6 +18,6 @@ export const LoginButtonContainer = styled.button`
   cursor: pointer;
 
   &:hover {
-    filter: brightness(150%);
+    filter: brightness(120%);
   }
 `;
