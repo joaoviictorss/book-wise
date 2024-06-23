@@ -3,7 +3,6 @@
 import { styled } from "styled-components"
 
 export const StyledCard = styled.div`
-  width: 308px;
   background-color: #181C2A;
   display: flex;
   gap: 20px;

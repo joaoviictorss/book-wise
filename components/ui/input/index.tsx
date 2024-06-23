@@ -1,10 +1,12 @@
 import { Search } from "lucide-react";
 import { InputContainer, InputText } from "./style";
 
-const Input = () => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = ({...props}: InputProps) => {
   return (
     <InputContainer>
-      <InputText placeholder="Placeholder"></InputText>
+      <InputText placeholder="Placeholder" {...props}></InputText>
       <Search />
     </InputContainer>
   );

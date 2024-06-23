@@ -16,4 +16,15 @@ export type Book = {
   total_pages: number;
   created_at: Date;
   ratings: Rating[];
+  categories: Category[];
+};
+
+export type Category = {
+  book_id: string;
+  categoryId: string;
+};
+
+export type CategoriesOnBooks = {
+  book: Book;
+  category: Category;
 };

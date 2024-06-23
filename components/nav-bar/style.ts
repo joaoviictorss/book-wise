@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 export const ContainerNavBar = styled.nav`
-  height: 100%;
+  height: calc(100vh - 36px);
   background-image: linear-gradient(
     143deg,
     rgba(42, 40, 121, 1) 0%,
@@ -12,6 +12,7 @@ export const ContainerNavBar = styled.nav`
     rgba(37, 93, 106, 1) 85%
   );
   border-radius: 12px;
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   display: flex;
