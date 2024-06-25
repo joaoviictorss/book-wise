@@ -84,4 +84,14 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--color-gray-200);
     padding: 20px;
   }
+
+  .gradient-border {
+    padding: 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-vertical);
+
+  }
 `;

@@ -20,7 +20,9 @@ const NavBar = async () => {
 
       {session ? (
         <UserInfos>
-          <img src={session.user!.image!} alt="" />
+          <div className="gradient-border">
+            <img src={session.user?.image!} alt="" />
+          </div>
           <span>{session.user!.name?.split(" ")[0]}</span>
           <form
             action={async () => {

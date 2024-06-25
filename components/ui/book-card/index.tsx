@@ -1,49 +1,28 @@
-"use client";
-
 import Image from "next/image";
-import { CardInfos, StyledCard } from "./style";
-import { Rating } from "@/types";
+import { StyledCard } from "./style";
 import RatingStars from "../rating-stars";
+import { Book, Rating } from "@/types";
 
 interface BookCardProps {
-  image_url: string;
-  date: string;
-  title: string;
-  author: string;
-  sumary: string;
+  book: Book;
   ratings: Rating[];
   onClick?: () => void;
 }
 
-const BookCard = ({
-  image_url,
-  date,
-  ratings,
-  title,
-  author,
-  sumary,
-  onClick,
-}: BookCardProps) => {
+const BookCard = ({ book, ratings, onClick }: BookCardProps) => {
   const mediaRate =
     ratings.reduce((acc, curr) => acc + curr.rate, 0) / ratings.length;
 
   return (
-    <StyledCard onClick={onClick}>
-      <Image src={image_url} alt="" width={108} height={152} priority />
+    <StyledCard>
+      <Image src={book.cover_url} alt="" width={64} height={94} priority />
 
-      <CardInfos>
-        <div className="date">
-          <span>{date}</span>
-          <RatingStars mediaRating={mediaRate} />
-        </div>
+      <div className="infos">
+        <strong className="title">{book.name}</strong>
+        <span className="author">{book.author}</span>
 
-        <div className="book-info">
-          <strong className="title">{title}</strong>
-          <span className="author">{author}</span>
-        </div>
-
-        <div className="sumary">{sumary}</div>
-      </CardInfos>
+        <RatingStars mediaRating={mediaRate} />
+      </div>
     </StyledCard>
   );
 };

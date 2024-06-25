@@ -1,7 +1,7 @@
 "use client";
 
 import { Book } from "@/types";
-import BookCardSecondary from "../ui/book-card-secondary";
+import BookCard from "../ui/book-card";
 import Tag from "../ui/tag";
 import { useState } from "react";
 import { TitlePage } from "@/app/(protected)/discover/style";
@@ -24,7 +24,7 @@ const DiscoverBooks = ({ books, categories }: DiscoverBooksProps) => {
 
   const filteredBooksByCategory = selectedCategory
     ? books.filter((book) =>
-        book.categories.some(
+        book.categories?.some(
           (category) => category.categoryId === selectedCategory
         )
       )
@@ -64,19 +64,11 @@ const DiscoverBooks = ({ books, categories }: DiscoverBooksProps) => {
       <div className="books">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
-            <BookCardSecondary
-              key={book.id}
-              image_url={book.cover_url}
-              title={book.name}
-              author={book.author}
-              ratings={book.ratings}
-            />
+            <BookCard book={book} ratings={book.ratings!} />
           ))
         ) : (
           <p>Nenhum livro encontrado</p>
         )}
-
-  
       </div>
     </>
   );

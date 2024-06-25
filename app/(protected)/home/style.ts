@@ -2,13 +2,29 @@
 
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
+export const Container = styled.div`
+  width: 100%;
+  margin: 32px 64px 0px 64px;
   display: flex;
-  height: 100%;
+  flex-direction: column;
+  gap: 32px;
 
-  .books {
+  .title {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
   }
+
+  .ratings {
+    display: flex;
+  }
+`;
+
+export const TitlePage = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f8f9fc;
+  font-size: 1.125rem;
 `;

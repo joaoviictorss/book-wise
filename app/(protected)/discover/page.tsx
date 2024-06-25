@@ -1,9 +1,5 @@
 import { prismadb } from "@/lib/db";
-import { Container, TitlePage } from "./style";
-import { BookHeart } from "lucide-react";
-import Input from "@/components/ui/input";
-import Tag from "@/components/ui/tag";
-import BookCardSecondary from "@/components/ui/book-card-secondary";
+import { Container } from "./style";
 import DiscoverBooks from "@/components/discover-books";
 
 const DiscoverPage = async () => {
@@ -14,11 +10,7 @@ const DiscoverPage = async () => {
     },
   });
 
-  const categories = await prismadb.category.findMany()
-
-  const categoriesOnBooks = await prismadb.categoriesOnBooks.findMany({});
-
-  console.log(books);
+  const categories = await prismadb.category.findMany();
 
   return (
     <Container>

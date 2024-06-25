@@ -1,3 +1,7 @@
+import { Book as BookPrisma } from "@prisma/client";
+import { User as UserPrisma } from "@prisma/client";
+import { User } from "next-auth";
+
 export type Rating = {
   id: string;
   rate: number;
@@ -27,4 +31,15 @@ export type Category = {
 export type CategoriesOnBooks = {
   book: Book;
   category: Category;
+};
+
+export type RatingPost = {
+  id: string;
+  rate: number;
+  description: string;
+  created_at: Date;
+  book_id: string;
+  user_id: string;
+  user: UserPrisma;
+  book: BookPrisma;
 };

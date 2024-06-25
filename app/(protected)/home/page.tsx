@@ -1,43 +1,30 @@
-import { auth, signOut } from "@/auth";
-import { HomeContainer } from "./style";
-import BookCard from "@/components/ui/book-card";
+import UsersRatings from "@/components/users-ratings";
+import { Container } from "./style";
 import { prismadb } from "@/lib/db";
-import CardBookSecondary from "@/components/ui/book-card-secondary";
-import BookCardSecondary from "@/components/ui/book-card-secondary";
-import { Book } from "@/types";
 
 const HomePage = async () => {
-  const session = await auth();
+  const ratings = await prismadb.rating.findMany({
+    include: {
+      user: true,
+      book: true,
+    },
+    orderBy: {
+      created_at: "desc",
+    },
+  });
 
-  if (!session) {
-    return <div>HomePage Nao logado</div>;
-  }
-
-  const books = await prismadb.book.findMany({
+  const popularBooks = await prismadb.book.findMany({
+    take: 4,
     include: {
       ratings: true,
+      categories: true,
     },
   });
 
   return (
-    <HomeContainer>
-      <div>
-        <form
-          action={async () => {
-            "use server";
-
-            await signOut({
-              redirectTo: "/",
-            });
-          }}
-        >
-          <button type="submit">Sair</button>
-        </form>
-      </div>
-      <div>
-        <div className="books"></div>
-      </div>
-    </HomeContainer>
+    <Container>
+      <UsersRatings ratings={ratings} popularBooks={popularBooks} />
+    </Container>
   );
 };
 
