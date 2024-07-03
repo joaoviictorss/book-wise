@@ -13,7 +13,7 @@ const RatingStars = ({ mediaRating }: RatingStarsProps) => {
   // Cria um array com o total de estrelas (preenchidas e vazias)
   const stars = Array.from({ length: totalStars }, (_, index) => {
     return (
-      <span key={index}>{index < mediaRating ? <StarFilled /> : <Star />}</span>
+      <span key={index}>{index < mediaRating ? <StarFilled /> : <Star/>}</span>
     );
   });
 

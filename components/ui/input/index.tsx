@@ -3,10 +3,10 @@ import { InputContainer, InputText } from "./style";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const Input = ({...props}: InputProps) => {
+const Input = ({ ...props }: InputProps) => {
   return (
     <InputContainer>
-      <InputText placeholder="Placeholder" {...props}></InputText>
+      <InputText placeholder="Buscar livro..." {...props}></InputText>
       <Search />
     </InputContainer>
   );

@@ -12,7 +12,6 @@ export const ContainerNavBar = styled.nav`
     rgba(37, 93, 106, 1) 85%
   );
   border-radius: 12px;
-  position: -webkit-sticky;
   position: sticky;
   left: 0;
   display: flex;
@@ -22,6 +21,8 @@ export const ContainerNavBar = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  z-index: 1000;
+  margin: 20px 0px 0px 20px;
 
   .routes-container {
     margin-top: 90px;

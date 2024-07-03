@@ -23,7 +23,7 @@ const NavBar = async () => {
           <div className="gradient-border">
             <img src={session.user?.image!} alt="" />
           </div>
-          <span>{session.user!.name?.split(" ")[0]}</span>
+          <span>{session.user?.name?.split(" ")[0]}</span>
           <form
             action={async () => {
               "use server";

@@ -64,7 +64,7 @@ const DiscoverBooks = ({ books, categories }: DiscoverBooksProps) => {
       <div className="books">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
-            <BookCard book={book} ratings={book.ratings!} />
+            <BookCard key={book.id} book={book} ratings={book.ratings!} />
           ))
         ) : (
           <p>Nenhum livro encontrado</p>

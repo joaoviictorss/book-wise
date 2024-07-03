@@ -6,6 +6,8 @@ import RatingStars from "../rating-stars";
 
 import formatDate from "@/utils/format-date";
 import { RatingPost } from "@/types";
+import Link from "next/link";
+
 
 interface RatingCardProps {
   onClick?: () => void;
@@ -29,13 +31,18 @@ const RatingCard = ({ rating, onClick }: RatingCardProps) => {
       </RatingInfos>
 
       <BookInfos>
-        <Image
-          src={rating.book.cover_url!}
-          alt=""
-          width={108}
-          height={152}
-          priority
-        />
+        <Link
+          href={"/discover?modal=true&book=" + rating.book.id}
+          scroll={false}
+        >
+          <Image
+            src={rating.book.cover_url!}
+            alt=""
+            width={108}
+            height={152}
+            priority
+          />
+        </Link>
 
         <CardInfos>
           <div className="book-info">

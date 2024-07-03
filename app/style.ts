@@ -82,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--color-gray-800);
     color: var(--color-gray-200);
-    padding: 20px;
+    
   }
 
   .gradient-border {
@@ -93,5 +93,10 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
     background: var(--gradient-vertical);
 
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-family: inherit;
   }
 `;

@@ -14,7 +14,6 @@ export const StyledCard = styled.div`
   border-radius: 10px;
   height: 100%;
   border: 3px solid transparent;
-  cursor: pointer;
   transition-duration: 0.1s;
 
   &:hover {
