@@ -31,6 +31,7 @@ export const RatingInfos = styled.div`
     object-fit: cover;
     width: 40px;
     height: 40px;
+    cursor: pointer;
 
     &::after {
       content: "";

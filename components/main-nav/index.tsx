@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { BookHeart, User, LineChart } from "lucide-react";
 import NavBarItem from "../ui/navbar-item";
 import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 
 interface MainNavProps {
   session: Session | null;
@@ -26,10 +27,10 @@ const MainNav = ({ session }: MainNavProps) => {
       isActive: pathname === "/discover",
     },
     {
-      href: "/profile",
+      href: `/profile/${session?.user?.id}`,
       icon: <User />,
       title: "Perfil",
-      isActive: pathname === "/profile",
+      isActive: pathname.includes(`/profile`),
       authRequired: true,
     },
   ];

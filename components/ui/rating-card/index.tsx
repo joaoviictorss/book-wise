@@ -7,7 +7,7 @@ import RatingStars from "../rating-stars";
 import formatDate from "@/utils/format-date";
 import { RatingPost } from "@/types";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 
 interface RatingCardProps {
   onClick?: () => void;
@@ -15,10 +15,15 @@ interface RatingCardProps {
 }
 
 const RatingCard = ({ rating, onClick }: RatingCardProps) => {
+  const router = useRouter();
+
   return (
     <StyledCard onClick={onClick}>
       <RatingInfos>
-        <div className="gradient-border">
+        <div
+          className="gradient-border"
+          onClick={() => router.push(`/profile/${rating.user.id}`)}
+        >
           <Image src={rating.user.image!} width={40} height={40} alt="" />
         </div>
         <div className="user-infos">
@@ -50,7 +55,7 @@ const RatingCard = ({ rating, onClick }: RatingCardProps) => {
             <span className="author">{rating.book.author}</span>
           </div>
 
-          <div className="sumary">{rating.book.summary}</div>
+          <div className="sumary">{rating.description}</div>
         </CardInfos>
       </BookInfos>
     </StyledCard>

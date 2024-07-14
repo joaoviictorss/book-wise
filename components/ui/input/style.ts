@@ -2,13 +2,13 @@
 
 import styled from "styled-components";
 
-export const InputContainer = styled.div<{ $isActive?: boolean }>`
+export const InputContainer = styled.div<{ $isActive?: boolean, $width?: "default" | "full" }>`
   display: flex;
   align-items: center;
   border: solid 2px #303f73;
   border-radius: 5px;
   color: var(--color-gray-200);
-  width: 300px;
+  width: ${({ $width }) => ($width === "default" ? "300px" : "100%")};
 
   &:focus-within {
     border-color: #255d6a;

@@ -41,7 +41,7 @@ const DiscoverBooks = ({ books, categories }: DiscoverBooksProps) => {
           <BookHeart color="#50B2C0" size={32} />
           Explorar
         </TitlePage>
-        <Input value={searchFilter} onChange={handleFilterSearch} />
+        <Input value={searchFilter} onChange={handleFilterSearch} width={"default"} />
       </div>
 
       <div className="categories">

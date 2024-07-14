@@ -4,7 +4,6 @@ import Image from "next/image";
 import { StyledCard } from "./style";
 import RatingStars from "../rating-stars";
 import { Book, Rating } from "@/types";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 interface BookCardProps {

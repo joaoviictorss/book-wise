@@ -1,6 +1,6 @@
 import { Book as BookPrisma } from "@prisma/client";
 import { User as UserPrisma } from "@prisma/client";
-import { User } from "next-auth";
+
 
 export type Rating = {
   id: string;

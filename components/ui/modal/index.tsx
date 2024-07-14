@@ -99,14 +99,16 @@ const Modal = async ({ book_id }: ModalProps) => {
             <UserRating key={rating.id}>
               <div className="user-info">
                 <div className="user-avatar">
-                  <div className="gradient-border">
-                    <Image
-                      src={rating?.user?.image!}
-                      height={40}
-                      width={40}
-                      alt=""
-                    />
-                  </div>
+                  <Link href={`/profile/${rating?.user?.id}`}>
+                    <div className="gradient-border">
+                      <Image
+                        src={rating?.user?.image!}
+                        height={40}
+                        width={40}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
                   <div className="user-infos">
                     <span className="user-name">{rating?.user?.name}</span>
                     <span className="date">

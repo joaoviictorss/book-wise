@@ -23,6 +23,8 @@ export const ContainerNavBar = styled.nav`
   justify-content: flex-start;
   z-index: 1000;
   margin: 20px 0px 0px 20px;
+  max-width: 300px;
+  width: 100%;
 
   .routes-container {
     margin-top: 90px;
