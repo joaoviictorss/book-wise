@@ -82,7 +82,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--color-gray-800);
     color: var(--color-gray-200);
-    
   }
 
   .gradient-border {

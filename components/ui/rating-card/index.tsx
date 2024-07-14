@@ -23,7 +23,7 @@ const RatingCard = ({ rating, onClick }: RatingCardProps) => {
         </div>
         <div className="user-infos">
           <span className="username">{rating.user.name}</span>
-          <span className="date">{formatDate(rating.book.created_at!)}</span>
+          <span className="date">{formatDate(rating.created_at!)}</span>
         </div>
         <div className="stars">
           <RatingStars mediaRating={rating.rate} />

@@ -12,6 +12,7 @@ export const ModalContainer = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1001;
+  overflow: auto;
 `;
 
 export const ModalContent = styled.div`
@@ -21,6 +22,7 @@ export const ModalContent = styled.div`
   background-color: #0e1116;
   height: 100%;
   padding: 40px;
+  overflow-y: auto;
 
   .close-button {
     display: flex;
@@ -85,6 +87,10 @@ export const CardBook = styled.div`
         display: flex;
         flex-direction: column;
       }
+    }
+    .label {
+      color: #d1d6e4;
+      font-family: 0.75rem;
     }
   }
 `;

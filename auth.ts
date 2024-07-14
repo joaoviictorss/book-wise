@@ -11,16 +11,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/",
     // error: precisa criar
   },
-  // events: {
-  //   async signIn({ user }) {
-  //     await prismadb.user.create({
-  //       data: {
-  //         name: user.name!,
-  //         avatar_url: user.image,
-  //       } ,
-  //     });
-  //   }
-  // },
   providers: [
     google({
       clientId: process.env.AUTH_GOOGLE_ID,
@@ -32,5 +22,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   adapter: PrismaAdapter(prismadb),
-  session: { strategy: "jwt" },
+  callbacks: {
+    session({ session, user }) {
+      session.user.id = user.id;
+      return session;
+    },
+  },
 });

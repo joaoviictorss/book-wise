@@ -3,8 +3,13 @@
 import { usePathname } from "next/navigation";
 import { BookHeart, User, LineChart } from "lucide-react";
 import NavBarItem from "../ui/navbar-item";
+import { Session } from "next-auth";
 
-const MainNav = () => {
+interface MainNavProps {
+  session: Session | null;
+}
+
+const MainNav = ({ session }: MainNavProps) => {
   const pathname = usePathname();
 
   const routes = [
@@ -25,19 +30,25 @@ const MainNav = () => {
       icon: <User />,
       title: "Perfil",
       isActive: pathname === "/profile",
+      authRequired: true,
     },
   ];
   return (
     <div className="routes-container">
-      {routes.map((route) => (
-        <NavBarItem
-          title={route.title}
-          icon={route.icon}
-          href={route.href}
-          isActive={route.isActive}
-          key={route.href}
-        />
-      ))}
+      {routes.map((route) => {
+        if (route.authRequired && !session) {
+          return null;
+        }
+        return (
+          <NavBarItem
+            title={route.title}
+            icon={route.icon}
+            href={route.href}
+            isActive={route.isActive}
+            key={route.href}
+          />
+        );
+      })}
     </div>
   );
 };

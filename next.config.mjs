@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {styledComponents: true},
+  compiler: { styledComponents: true },
   images: {
     domains: [
-      "images.unsplash.com"
+      "images.unsplash.com",
+      "lh3.googleusercontent.com"
     ]
   }
 };

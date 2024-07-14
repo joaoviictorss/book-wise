@@ -1,0 +1,21 @@
+.star-container {
+  display: flex;
+  margin-left: auto;
+  all: unset;
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+/* .input-hidden {
+  all: unset;
+  display: none;
+} */
+
+.star-container > svg {
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+}

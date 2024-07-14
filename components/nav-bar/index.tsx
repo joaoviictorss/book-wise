@@ -16,7 +16,7 @@ const NavBar = async () => {
         <Image src={LogoImg} alt="" className="logo" />
       </Logo>
 
-      <MainNav />
+      <MainNav session={session} />
 
       {session ? (
         <UserInfos>

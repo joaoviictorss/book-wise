@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { StyledCard } from "./style";
 import RatingStars from "../rating-stars";
@@ -11,16 +13,11 @@ interface BookCardProps {
 }
 
 const BookCard = ({ book, ratings }: BookCardProps) => {
-  const pathname = usePathname();
-  const url = new URL(pathname ? pathname : "/", "http://localhost:3000");
-  url.searchParams.set("modal", "true");
-  url.searchParams.set("book", book.id.toString());
-
   const mediaRate =
     ratings.reduce((acc, curr) => acc + curr.rate, 0) / ratings.length;
 
   return (
-    <Link href={url.toString()} scroll={false}>
+    <Link href={"/discover?modal=true&book=" + book.id} scroll={false}>
       <StyledCard>
         <Image src={book.cover_url} alt="" width={64} height={94} priority />
 

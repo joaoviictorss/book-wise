@@ -31,7 +31,8 @@ const UsersRatings = ({ ratings, popularBooks }: UserRatingsProps) => {
           <span>Avaliações mais recentes</span>
           <div className="list">
             {ratings.map((rating) => (
-              <RatingCard rating={rating} />
+              <RatingCard rating={rating} 
+              key={rating.id} />
             ))}
           </div>
         </div>

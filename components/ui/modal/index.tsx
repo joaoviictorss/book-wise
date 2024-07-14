@@ -1,4 +1,12 @@
 import { prismadb } from "@/lib/db";
+import { auth } from "@/auth";
+import Link from "next/link";
+import formatDate from "@/utils/format-date";
+import Image from "next/image";
+
+import RatingStars from "../rating-stars";
+import FormRating from "@/components/form-rating";
+import { BookOpen, Bookmark, X } from "lucide-react";
 import {
   CardBook,
   ModalContainer,
@@ -6,11 +14,6 @@ import {
   RatingsContainer,
   UserRating,
 } from "./style";
-import Link from "next/link";
-import { BookOpen, Bookmark, X } from "lucide-react";
-import Image from "next/image";
-import RatingStars from "../rating-stars";
-import formatDate from "@/utils/format-date";
 
 interface ModalProps {
   book_id?: string;
@@ -37,13 +40,13 @@ const Modal = async ({ book_id }: ModalProps) => {
 
   const ratings = book?.ratings || [];
 
-  console.log(ratings);
-
   const categoriesOnBooks =
     book?.categories.map((category) => category.category.name) || [];
 
   const mediaRate =
     ratings?.reduce((acc, curr) => acc + curr.rate, 0) / ratings?.length;
+
+  const session = await auth();
 
   return (
     <ModalContainer>
@@ -53,6 +56,8 @@ const Modal = async ({ book_id }: ModalProps) => {
             <X color="#8D95AF" />
           </Link>
         </div>
+
+        {/* Informações do livro */}
         <CardBook>
           <div className="book-data">
             <Image src={book?.cover_url!} height={242} width={172} alt="" />
@@ -71,20 +76,24 @@ const Modal = async ({ book_id }: ModalProps) => {
             <div className="category">
               <Bookmark size={24} color="#50B2C0" />
               <div className="column">
-                <span>Categoria</span>
+                <span className="label">Categoria</span>
                 <span>{categoriesOnBooks.join(", ")}</span>
               </div>
             </div>
             <div className="pages">
               <BookOpen size={24} color="#50B2C0" />
               <div className="column">
-                <span>Páginas</span>
+                <span className="label">Páginas</span>
                 <span>{book?.total_pages}</span>
               </div>
             </div>
           </div>
         </CardBook>
-        {/* Criar formulario de avaliação */}
+
+        {/* Formulário de avaliação */}
+        <FormRating bookId={book_id!} session={session ?? null} />
+
+        {/* Lista de avaliações */}
         <RatingsContainer>
           {ratings.map((rating) => (
             <UserRating key={rating.id}>
@@ -101,7 +110,7 @@ const Modal = async ({ book_id }: ModalProps) => {
                   <div className="user-infos">
                     <span className="user-name">{rating?.user?.name}</span>
                     <span className="date">
-                      {formatDate(rating.user.createdAt)}
+                      {formatDate(rating.created_at)}
                     </span>
                   </div>
                 </div>

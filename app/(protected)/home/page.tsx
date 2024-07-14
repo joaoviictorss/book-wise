@@ -1,8 +1,12 @@
 import UsersRatings from "@/components/users-ratings";
 import { Container } from "./style";
 import { prismadb } from "@/lib/db";
+import { auth } from "@/auth";
 
 const HomePage = async () => {
+  
+
+
   const ratings = await prismadb.rating.findMany({
     include: {
       user: true,
