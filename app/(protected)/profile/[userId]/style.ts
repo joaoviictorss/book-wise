@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 export const ProfilePageContainer = styled.div`
-  margin: 32px 64px 0px 64px;
+   margin: 64px 64px 0px 400px;
 `;
 
 export const TitlePage = styled.div`
@@ -17,7 +17,7 @@ export const TitlePage = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  gap: 160px;
+  gap: 80px;
 `;
 
 export const AnalyticsContainer = styled.div`

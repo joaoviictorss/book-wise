@@ -36,18 +36,20 @@ const RatingCard = ({ rating, onClick }: RatingCardProps) => {
       </RatingInfos>
 
       <BookInfos>
-        <Link
-          href={"/discover?modal=true&book=" + rating.book.id}
-          scroll={false}
-        >
-          <Image
-            src={rating.book.cover_url!}
-            alt=""
-            width={108}
-            height={152}
-            priority
-          />
-        </Link>
+        <div>
+          <Link
+            href={"/discover?modal=true&book=" + rating.book.id}
+            scroll={false}
+          >
+            <Image
+              src={rating.book.cover_url!}
+              alt=""
+              width={108}
+              height={152}
+              priority
+            />
+          </Link>
+        </div>
 
         <CardInfos>
           <div className="book-info">

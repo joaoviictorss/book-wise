@@ -36,7 +36,7 @@ const ProfilePage = async ({ params }: { params: { userId: string } }) => {
     },
   });
 
-  if (userRatings.length === 0) {
+  if (!userRatings) {
     redirect("/home");
   }
 
@@ -129,8 +129,8 @@ const ProfilePage = async ({ params }: { params: { userId: string } }) => {
               <DataContainer>
                 <Bookmark size={32} color="#50B2C0" />
                 <div className="data">
-                  <span className="quantity">{bestGenre.name}</span>
-                  <span className="tag">Páginas lidas</span>
+                  <span className="quantity">{bestGenre?.name}</span>
+                  <span className="tag">Categoria mais lida</span>
                 </div>
               </DataContainer>
             </AnalyticsUserData>

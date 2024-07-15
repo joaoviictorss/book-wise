@@ -6,6 +6,7 @@ import { MyBooks, UserCardRating, UserRatingsContainer } from "./style";
 import Image from "next/image";
 import RatingStars from "../ui/rating-stars";
 import { useState } from "react";
+import formatDate from "@/utils/format-date";
 
 interface ProfileRatingsProps {
   userRatings: RatingPost[];
@@ -31,6 +32,7 @@ const ProfileRatings = ({ userRatings }: ProfileRatingsProps) => {
         <UserRatingsContainer>
           {filteredRatings?.map((rating) => (
             <div key={rating.id}>
+              
               <UserCardRating>
                 <div className="book-infos">
                   <Image
